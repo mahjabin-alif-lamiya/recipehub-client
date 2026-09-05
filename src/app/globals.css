@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-paper: #F7F8F3;
+  --color-paper-dark: #181B15;
+  --color-surface: #FFFFFF;
+  --color-surface-dark: #20241C;
+  --color-ink: #24261F;
+  --color-ink-dark: #EDEFE7;
+
+  --color-herb-50: #EEF3E8;
+  --color-herb-100: #D9E4CC;
+  --color-herb-400: #5C7A45;
+  --color-herb-500: #3F5E3A;
+  --color-herb-600: #334B2E;
+  --color-herb-700: #293C25;
+
+  --color-mustard-50: #FBF1DC;
+  --color-mustard-400: #E3B25C;
+  --color-mustard-500: #D9A441;
+  --color-mustard-600: #B98530;
+
+  --color-brick-400: #C46655;
+  --color-brick-500: #B34A3C;
+  --color-brick-600: #8F3A2F;
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-work-sans), system-ui, sans-serif;
+
+  --radius-card: 10px;
+}
+
+::selection {
+  background-color: rgba(217, 164, 65, 0.4);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-herb-500);
+  outline-offset: 2px;
+}
+
+/* Recipe index-card motif: a dashed top edge with two small "punch
+   holes", echoing a physical recipe card in a card box. Used on
+   RecipeCard and a couple of feature panels. */
+.card-punch {
+  position: relative;
+  border-top: 2px dashed rgba(36, 38, 31, 0.2);
+}
+.dark .card-punch {
+  border-top-color: rgba(237, 239, 231, 0.2);
+}
+.card-punch::before,
+.card-punch::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--color-paper);
+  border: 2px dashed rgba(36, 38, 31, 0.2);
+}
+.dark .card-punch::before,
+.dark .card-punch::after {
+  background: var(--color-paper-dark);
+  border-color: rgba(237, 239, 231, 0.2);
+}
+.card-punch::before {
+  left: 18px;
+}
+.card-punch::after {
+  right: 18px;
+}
