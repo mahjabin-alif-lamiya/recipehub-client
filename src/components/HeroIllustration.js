@@ -1,52 +1,32 @@
-// A small hand-drawn-style SVG scene (steaming bowl + recipe card)
-// used on the homepage hero. Kept as inline SVG so it carries the
-// palette's colors without shipping an image file.
+import { FiClock, FiHeart } from "react-icons/fi";
+import { FaUtensils } from "react-icons/fa";
+
+// A mockup of what a real recipe card looks like in the app, shown
+// as a small stack for depth. Static — no looping animation.
 export default function HeroIllustration() {
   return (
-    <svg viewBox="0 0 400 300" className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="300" fill="none" />
+    <div className="relative mx-auto w-full max-w-sm py-6">
+      <div className="absolute inset-x-6 top-8 h-full rounded-card bg-mustard-100 dark:bg-mustard-600/20" style={{ transform: "rotate(6deg)" }} />
+      <div className="absolute inset-x-6 top-4 h-full rounded-card bg-herb-100 dark:bg-herb-600/20" style={{ transform: "rotate(-4deg)" }} />
 
-      <path
-        className="animate-steam"
-        d="M170 70 Q160 50 175 35 Q188 22 178 5"
-        fill="none"
-        stroke="#CC5B33"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
-      <path
-        className="animate-steam animate-steam-delay"
-        d="M210 70 Q200 48 215 32 Q228 18 218 2"
-        fill="none"
-        stroke="#CC5B33"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
-
-      <ellipse cx="200" cy="150" rx="105" ry="26" fill="#CC5B33" opacity="0.12" />
-      <path
-        d="M95 150 Q95 210 200 210 Q305 210 305 150 Z"
-        fill="#FBEDE4"
-        stroke="#CC5B33"
-        strokeWidth="4"
-      />
-      <ellipse cx="200" cy="150" rx="105" ry="26" fill="#F5D3BC" stroke="#CC5B33" strokeWidth="4" />
-
-      <circle className="animate-pulse-soft" cx="165" cy="146" r="12" fill="#D9A441" />
-      <circle className="animate-pulse-soft" cx="205" cy="140" r="15" fill="#B34A3C" style={{ animationDelay: "0.4s" }} />
-      <circle className="animate-pulse-soft" cx="240" cy="150" r="10" fill="#5C7A45" style={{ animationDelay: "0.8s" }} />
-      <circle className="animate-pulse-soft" cx="185" cy="158" r="9" fill="#E3B25C" style={{ animationDelay: "1.2s" }} />
-
-      <g transform="translate(255 195)">
-        <g className="animate-float">
-          <g transform="rotate(8)">
-            <rect width="90" height="64" rx="4" fill="#F7F8F3" stroke="#24261F" strokeOpacity="0.25" strokeWidth="2" />
-            <line x1="12" y1="16" x2="78" y2="16" stroke="#24261F" strokeOpacity="0.35" strokeWidth="2" />
-            <line x1="12" y1="30" x2="78" y2="30" stroke="#24261F" strokeOpacity="0.2" strokeWidth="2" />
-            <line x1="12" y1="42" x2="60" y2="42" stroke="#24261F" strokeOpacity="0.2" strokeWidth="2" />
-          </g>
-        </g>
-      </g>
-    </svg>
+      <div
+        className="relative overflow-hidden rounded-card bg-surface ring-1 ring-ink/8 dark:bg-surface-dark dark:ring-ink-dark/10"
+        style={{ transform: "rotate(-2deg)" }}
+      >
+        <div className="flex h-40 items-center justify-center bg-gradient-to-br from-spice-400 to-mustard-400 sm:h-48">
+          <FaUtensils className="text-white/90" size={36} />
+        </div>
+        <div className="space-y-2 p-5">
+          <span className="inline-block rounded-full bg-spice-50 px-2.5 py-1 text-xs font-medium text-spice-600 dark:bg-spice-600/20 dark:text-spice-400">
+            Soup
+          </span>
+          <h3 className="font-display text-xl font-semibold">Grandma&apos;s Tomato Soup</h3>
+          <div className="flex items-center justify-between text-sm text-ink/60 dark:text-ink-dark/60">
+            <span className="flex items-center gap-1.5"><FiClock size={14} /> 25 mins</span>
+            <span className="flex items-center gap-1.5"><FiHeart size={14} /> 482</span>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
