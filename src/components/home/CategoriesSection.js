@@ -22,7 +22,7 @@ export default function CategoriesSection() {
             href={`/browse-recipes?categories=${encodeURIComponent(name)}`}
             className="card-punch rounded-card bg-surface pt-5 pb-4 text-center ring-1 ring-ink/8 hover:-translate-y-0.5 transition-transform dark:bg-surface-dark dark:ring-ink-dark/10"
           >
-            <Icon className="mx-auto text-herb-500" size={22} />
+            <Icon className="mx-auto text-spice-500" size={22} />
             <p className="mt-2 text-sm">{name}</p>
           </Link>
         ))}

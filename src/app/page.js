@@ -29,7 +29,7 @@ export default function HomePage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/browse-recipes"
-                className="rounded-full bg-herb-500 px-6 py-3 text-sm text-white hover:bg-herb-600"
+                className="rounded-full bg-spice-500 px-6 py-3 text-sm text-white hover:bg-spice-600"
               >
                 Browse recipes
               </Link>
@@ -48,7 +48,7 @@ export default function HomePage() {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
             className="relative"
           >
-            <div className="card-punch overflow-hidden rounded-card bg-herb-50 pt-4 ring-1 ring-ink/8 dark:bg-herb-700/20 dark:ring-ink-dark/10">
+            <div className="card-punch overflow-hidden rounded-card bg-spice-50 pt-4 ring-1 ring-ink/8 dark:bg-spice-700/20 dark:ring-ink-dark/10">
               <div className="relative mx-4 mb-4 aspect-[4/3] overflow-hidden rounded-[6px]">
                 <HeroIllustration />
               </div>

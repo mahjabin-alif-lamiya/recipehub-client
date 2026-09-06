@@ -10,6 +10,13 @@
   --color-ink: #24261F;
   --color-ink-dark: #EDEFE7;
 
+  --color-spice-50: #FBEDE4;
+  --color-spice-100: #F5D3BC;
+  --color-spice-400: #DD7A45;
+  --color-spice-500: #CC5B33;
+  --color-spice-600: #A8471F;
+  --color-spice-700: #82370;
+
   --color-herb-50: #EEF3E8;
   --color-herb-100: #D9E4CC;
   --color-herb-400: #5C7A45;
@@ -37,13 +44,10 @@
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-herb-500);
+  outline: 2px solid var(--color-spice-500);
   outline-offset: 2px;
 }
 
-/* Recipe index-card motif: a dashed top edge with two small "punch
-   holes", echoing a physical recipe card in a card box. Used on
-   RecipeCard and a couple of feature panels. */
 .card-punch {
   position: relative;
   border-top: 2px dashed rgba(36, 38, 31, 0.2);

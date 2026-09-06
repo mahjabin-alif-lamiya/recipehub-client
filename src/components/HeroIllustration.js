@@ -1,6 +1,3 @@
-// A small hand-drawn-style SVG scene (steaming bowl + recipe card)
-// used on the homepage hero. Kept as inline SVG so it carries the
-// palette's colors without shipping an image file.
 export default function HeroIllustration() {
   return (
     <svg viewBox="0 0 400 300" className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
@@ -9,31 +6,31 @@ export default function HeroIllustration() {
       <path
         d="M170 70 Q160 50 175 35 Q188 22 178 5"
         fill="none"
-        stroke="#5C7A45"
+        stroke="#CC5B33"
         strokeWidth="3"
         strokeLinecap="round"
-        opacity="0.55"
+        opacity="0.5"
       />
       <path
         d="M210 70 Q200 48 215 32 Q228 18 218 2"
         fill="none"
-        stroke="#5C7A45"
+        stroke="#CC5B33"
         strokeWidth="3"
         strokeLinecap="round"
-        opacity="0.4"
+        opacity="0.35"
       />
 
-      <ellipse cx="200" cy="150" rx="105" ry="26" fill="#3F5E3A" opacity="0.12" />
+      <ellipse cx="200" cy="150" rx="105" ry="26" fill="#CC5B33" opacity="0.12" />
       <path
         d="M95 150 Q95 210 200 210 Q305 210 305 150 Z"
-        fill="#EEF3E8"
-        stroke="#3F5E3A"
+        fill="#FBEDE4"
+        stroke="#CC5B33"
         strokeWidth="4"
       />
-      <ellipse cx="200" cy="150" rx="105" ry="26" fill="#D9E4CC" stroke="#3F5E3A" strokeWidth="4" />
+      <ellipse cx="200" cy="150" rx="105" ry="26" fill="#F5D3BC" stroke="#CC5B33" strokeWidth="4" />
 
       <circle cx="165" cy="146" r="12" fill="#D9A441" />
-      <circle cx="205" cy="140" r="15" fill="#C46655" />
+      <circle cx="205" cy="140" r="15" fill="#B34A3C" />
       <circle cx="240" cy="150" r="10" fill="#5C7A45" />
       <circle cx="185" cy="158" r="9" fill="#E3B25C" />
 

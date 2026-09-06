@@ -19,7 +19,7 @@ export default function PopularSection() {
   }, []);
 
   return (
-    <section className="bg-herb-50/60 py-14 dark:bg-herb-700/10">
+    <section className="bg-spice-50/60 py-14 dark:bg-spice-700/10">
       <div className="mx-auto max-w-6xl px-5">
         <div className="mb-8 flex items-end justify-between">
           <div>
@@ -28,7 +28,7 @@ export default function PopularSection() {
               Most liked recipes across the community.
             </p>
           </div>
-          <Link href="/browse-recipes" className="text-sm text-herb-600 dark:text-herb-100">
+          <Link href="/browse-recipes" className="text-sm text-spice-600 dark:text-spice-100">
             See all
           </Link>
         </div>

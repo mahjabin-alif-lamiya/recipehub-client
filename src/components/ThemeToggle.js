@@ -10,9 +10,9 @@ export default function ThemeToggle() {
     <button
       onClick={toggleTheme}
       aria-label="Toggle dark mode"
-      className="grid h-9 w-9 place-items-center rounded-full border border-ink/15 text-ink transition-colors hover:bg-herb-500 hover:text-white dark:border-ink-dark/20 dark:text-ink-dark"
+      className="grid h-10 w-10 place-items-center rounded-xl bg-spice-50 text-spice-600 transition-colors hover:bg-spice-100 dark:bg-spice-700/30 dark:text-spice-100 dark:hover:bg-spice-700/50"
     >
-      {theme === "light" ? <FiMoon size={16} /> : <FiSun size={16} />}
+      {theme === "light" ? <FiMoon size={17} /> : <FiSun size={17} />}
     </button>
   );
 }

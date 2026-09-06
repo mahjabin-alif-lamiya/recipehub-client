@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { FiMenu, FiX } from "react-icons/fi";
+import { FaUtensils } from "react-icons/fa";
 import { useAuth } from "@/context/AuthContext";
 import ThemeToggle from "./ThemeToggle";
 
@@ -28,20 +29,30 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-ink/8 bg-paper/90 backdrop-blur dark:border-ink-dark/10 dark:bg-paper-dark/90">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
-        <Link href="/" className="font-display text-xl tracking-tight">
-          Recipe<span className="text-herb-500">Hub</span>
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
+        <Link href="/" className="flex items-center gap-2.5">
+          <span className="grid h-10 w-10 place-items-center rounded-xl bg-spice-500 text-white">
+            <FaUtensils size={17} />
+          </span>
+          <span>
+            <span className="block font-display text-lg leading-tight">
+              Recipe<span className="text-spice-500">Hub</span>
+            </span>
+            <span className="block text-xs text-spice-500 dark:text-spice-100">
+              Share what&apos;s cooking
+            </span>
+          </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav className="hidden items-center gap-1 rounded-full bg-spice-50 p-1 dark:bg-spice-700/20 md:flex">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm ${
+              className={`rounded-full px-4 py-2 text-sm transition-colors ${
                 pathname === link.href
-                  ? "text-herb-500 font-medium"
-                  : "text-ink/70 hover:text-ink dark:text-ink-dark/70 dark:hover:text-ink-dark"
+                  ? "bg-spice-500 text-white"
+                  : "text-ink/70 hover:bg-white/60 dark:text-ink-dark/70 dark:hover:bg-white/5"
               }`}
             >
               {link.label}
@@ -57,7 +68,7 @@ export default function Navbar() {
                 href={dashboardHome}
                 className="flex items-center gap-2 text-sm text-ink/80 dark:text-ink-dark/80"
               >
-                <span className="grid h-8 w-8 place-items-center overflow-hidden rounded-full bg-herb-100 text-xs font-medium text-herb-700 dark:bg-herb-700/40 dark:text-herb-100">
+                <span className="grid h-8 w-8 place-items-center overflow-hidden rounded-full bg-spice-100 text-xs font-medium text-spice-700 dark:bg-spice-700/40 dark:text-spice-100">
                   {user.image ? (
                     <Image src={user.image} alt={user.name} width={32} height={32} className="h-full w-full object-cover" />
                   ) : (
@@ -68,7 +79,7 @@ export default function Navbar() {
               </Link>
               <button
                 onClick={handleLogout}
-                className="rounded-full border border-ink/15 px-4 py-1.5 text-sm hover:bg-ink/5 dark:border-ink-dark/20 dark:hover:bg-white/5"
+                className="rounded-full border border-ink/15 px-4 py-2 text-sm hover:bg-ink/5 dark:border-ink-dark/20 dark:hover:bg-white/5"
               >
                 Log out
               </button>
@@ -80,7 +91,7 @@ export default function Navbar() {
               </Link>
               <Link
                 href="/register"
-                className="rounded-full bg-herb-500 px-4 py-1.5 text-sm text-white hover:bg-herb-600"
+                className="rounded-full bg-spice-500 px-5 py-2 text-sm text-white hover:bg-spice-600"
               >
                 Sign up
               </Link>
@@ -116,7 +127,7 @@ export default function Navbar() {
                 <Link href="/login" className="text-sm" onClick={() => setOpen(false)}>
                   Log in
                 </Link>
-                <Link href="/register" className="text-sm text-herb-500" onClick={() => setOpen(false)}>
+                <Link href="/register" className="text-sm text-spice-500" onClick={() => setOpen(false)}>
                   Sign up
                 </Link>
               </>
