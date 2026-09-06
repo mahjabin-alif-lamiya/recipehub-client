@@ -44,15 +44,15 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 rounded-full bg-spice-50 p-1 dark:bg-spice-700/20 md:flex">
+        <nav className="hidden items-center gap-1 md:flex">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={`rounded-full px-4 py-2 text-sm transition-colors ${
                 pathname === link.href
-                  ? "bg-spice-500 text-white"
-                  : "text-ink/70 hover:bg-white/60 dark:text-ink-dark/70 dark:hover:bg-white/5"
+                  ? "bg-spice-50 text-spice-600 dark:bg-spice-700/30 dark:text-spice-100"
+                  : "text-ink/70 hover:text-ink dark:text-ink-dark/70 dark:hover:text-ink-dark"
               }`}
             >
               {link.label}
