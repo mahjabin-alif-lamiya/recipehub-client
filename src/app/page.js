@@ -46,53 +46,11 @@ export default function HomePage() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-            className="relative"
           >
-            <div className="absolute -top-9 right-4 z-10 flex flex-col items-end">
-              <motion.p
-                initial={{ opacity: 0, y: -6 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="script-accent text-2xl text-spice-600 dark:text-spice-100"
-                style={{ transform: "rotate(-4deg)" }}
-              >
-                cooked with love
-              </motion.p>
-              <svg width="60" height="34" viewBox="0 0 60 34" className="mt-1 text-spice-500">
-                <motion.path
-                  d="M4 4 Q30 4 40 26"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 0.8, delay: 1.1, ease: "easeInOut" }}
-                />
-                <motion.path
-                  d="M32 22 L40 26 L38 17"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{ duration: 0.3, delay: 1.8 }}
-                />
-              </svg>
-            </div>
-            <div className="card-punch overflow-hidden rounded-card bg-spice-50 pt-4 ring-1 ring-ink/8 dark:bg-spice-700/20 dark:ring-ink-dark/10">
-              <div className="relative mx-4 mb-4 aspect-[4/3] overflow-hidden rounded-[6px]">
-                <HeroIllustration />
-              </div>
-            </div>
-            <div className="absolute -bottom-5 -left-5 hidden rounded-card bg-mustard-500 px-4 py-3 text-sm font-medium text-ink shadow-sm sm:block">
-              New recipe added every few minutes
-            </div>
+            <HeroIllustration />
           </motion.div>
         </div>
       </section>
