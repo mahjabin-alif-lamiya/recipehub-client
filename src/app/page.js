@@ -51,12 +51,28 @@ export default function HomePage() {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
             className="relative"
           >
-            <p
-              className="script-accent absolute -top-7 right-6 z-10 text-2xl text-spice-600 dark:text-spice-100"
-              style={{ transform: "rotate(-4deg)" }}
-            >
-              cooked with love
-            </p>
+            <div className="absolute -top-9 right-4 z-10 flex flex-col items-end">
+              <p className="script-accent text-2xl text-spice-600 dark:text-spice-100" style={{ transform: "rotate(-4deg)" }}>
+                cooked with love
+              </p>
+              <svg width="60" height="34" viewBox="0 0 60 34" className="mt-1 text-spice-500">
+                <path
+                  d="M4 4 Q30 4 40 26"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M32 22 L40 26 L38 17"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
             <div className="card-punch overflow-hidden rounded-card bg-spice-50 pt-4 ring-1 ring-ink/8 dark:bg-spice-700/20 dark:ring-ink-dark/10">
               <div className="relative mx-4 mb-4 aspect-[4/3] overflow-hidden rounded-[6px]">
                 <HeroIllustration />
