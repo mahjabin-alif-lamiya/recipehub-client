@@ -94,42 +94,72 @@ export default function Navbar() {
                 href="/register"
                 className="rounded-full bg-spice-500 px-5 py-2 text-[15px] font-medium text-white hover:bg-spice-600"
               >
-                Sign up
+                Register
               </Link>
             </>
           )}
         </div>
 
-        <button className="md:hidden" onClick={() => setOpen((o) => !o)} aria-label="Toggle menu">
-          {open ? <FiX size={22} /> : <FiMenu size={22} />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            onClick={() => setOpen((o) => !o)}
+            aria-label="Toggle menu"
+            className="grid h-10 w-10 place-items-center rounded-xl border border-ink/15 dark:border-ink-dark/20"
+          >
+            {open ? <FiX size={20} /> : <FiMenu size={20} />}
+          </button>
+        </div>
       </div>
 
       {open && (
-        <div className="space-y-3 border-t border-ink/8 px-5 py-4 md:hidden dark:border-ink-dark/10">
+        <div className="space-y-1 border-t border-ink/8 px-5 py-4 md:hidden dark:border-ink-dark/10">
           {links.map((link) => (
-            <Link key={link.href} href={link.href} className="block text-[15px] font-medium" onClick={() => setOpen(false)}>
+            <Link
+              key={link.href}
+              href={link.href}
+              className="block rounded-lg px-3 py-2.5 text-[15px] font-medium hover:bg-ink/5 dark:hover:bg-white/5"
+              onClick={() => setOpen(false)}
+            >
               {link.label}
             </Link>
           ))}
-          <div className="flex items-center gap-3 pt-2">
-            <ThemeToggle />
+
+          <div className="mt-3 space-y-2 border-t border-ink/8 pt-3 dark:border-ink-dark/10">
             {user ? (
               <>
-                <Link href={dashboardHome} className="text-[15px] font-medium" onClick={() => setOpen(false)}>
+                <Link
+                  href={dashboardHome}
+                  className="block rounded-full border border-ink/15 py-2.5 text-center text-[15px] font-medium dark:border-ink-dark/20"
+                  onClick={() => setOpen(false)}
+                >
                   Dashboard
                 </Link>
-                <button onClick={handleLogout} className="text-[15px] font-medium text-brick-500">
+                <button
+                  onClick={() => {
+                    handleLogout();
+                    setOpen(false);
+                  }}
+                  className="block w-full rounded-full bg-brick-500 py-2.5 text-center text-[15px] font-medium text-white"
+                >
                   Log out
                 </button>
               </>
             ) : (
               <>
-                <Link href="/login" className="text-[15px] font-medium" onClick={() => setOpen(false)}>
+                <Link
+                  href="/login"
+                  className="block rounded-full border border-ink/15 py-2.5 text-center text-[15px] font-medium dark:border-ink-dark/20"
+                  onClick={() => setOpen(false)}
+                >
                   Log in
                 </Link>
-                <Link href="/register" className="text-[15px] font-medium text-spice-500" onClick={() => setOpen(false)}>
-                  Sign up
+                <Link
+                  href="/register"
+                  className="block rounded-full bg-spice-500 py-2.5 text-center text-[15px] font-medium text-white"
+                  onClick={() => setOpen(false)}
+                >
+                  Register
                 </Link>
               </>
             )}
