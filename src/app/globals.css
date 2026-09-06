@@ -33,6 +33,16 @@
   --color-brick-500: #B34A3C;
   --color-brick-600: #8F3A2F;
 
+  --color-berry-50: #FBE7EC;
+  --color-berry-400: #D97390;
+  --color-berry-500: #C24B6B;
+  --color-berry-600: #9C3A54;
+
+  --color-sky-50: #E7F1F7;
+  --color-sky-400: #6FA8C7;
+  --color-sky-500: #3E7EA6;
+  --color-sky-600: #2F6284;
+
   --font-display: var(--font-fraunces), Georgia, serif;
   --font-sans: var(--font-work-sans), system-ui, sans-serif;
   --font-script: var(--font-caveat), cursive;
@@ -58,7 +68,6 @@ body {
   outline-offset: 2px;
 }
 
-/* Small uppercase label used above section/hero headlines */
 .eyebrow {
   font-family: var(--font-sans);
   font-size: 0.75rem;
@@ -71,7 +80,6 @@ body {
   color: var(--color-spice-100);
 }
 
-/* Handwritten-style accent text, used sparingly for personality */
 .script-accent {
   font-family: var(--font-script);
   font-weight: 600;
