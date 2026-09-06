@@ -52,24 +52,36 @@ export default function HomePage() {
             className="relative"
           >
             <div className="absolute -top-9 right-4 z-10 flex flex-col items-end">
-              <p className="script-accent text-2xl text-spice-600 dark:text-spice-100" style={{ transform: "rotate(-4deg)" }}>
+              <motion.p
+                initial={{ opacity: 0, y: -6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                className="script-accent text-2xl text-spice-600 dark:text-spice-100"
+                style={{ transform: "rotate(-4deg)" }}
+              >
                 cooked with love
-              </p>
+              </motion.p>
               <svg width="60" height="34" viewBox="0 0 60 34" className="mt-1 text-spice-500">
-                <path
+                <motion.path
                   d="M4 4 Q30 4 40 26"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 0.8, delay: 1.1, ease: "easeInOut" }}
                 />
-                <path
+                <motion.path
                   d="M32 22 L40 26 L38 17"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 1.8 }}
                 />
               </svg>
             </div>
