@@ -23,12 +23,13 @@ export default function PopularSection() {
       <div className="mx-auto max-w-6xl px-5">
         <div className="mb-8 flex items-end justify-between">
           <div>
-            <h2 className="font-display text-2xl">Popular right now</h2>
+            <p className="eyebrow">Community favorites</p>
+            <h2 className="mt-2 font-display text-3xl font-semibold">Popular right now</h2>
             <p className="mt-1 text-sm text-ink/60 dark:text-ink-dark/60">
               Most liked recipes across the community.
             </p>
           </div>
-          <Link href="/browse-recipes" className="text-sm text-spice-600 dark:text-spice-100">
+          <Link href="/browse-recipes" className="text-sm font-medium text-spice-600 dark:text-spice-100">
             See all
           </Link>
         </div>

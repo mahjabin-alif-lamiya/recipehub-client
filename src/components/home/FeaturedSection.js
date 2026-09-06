@@ -23,9 +23,10 @@ export default function FeaturedSection() {
     <section className="mx-auto max-w-6xl px-5 py-14">
       <div className="mb-8 flex items-end justify-between">
         <div>
-          <h2 className="font-display text-2xl">Featured recipes</h2>
+          <p className="eyebrow">Hand-picked</p>
+          <h2 className="mt-2 font-display text-3xl font-semibold">Featured recipes</h2>
           <p className="mt-1 text-sm text-ink/60 dark:text-ink-dark/60">
-            Hand-picked by the RecipeHub team this week.
+            Chosen by the RecipeHub team this week.
           </p>
         </div>
       </div>

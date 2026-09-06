@@ -18,8 +18,11 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <h1 className="font-display text-4xl leading-[1.1] sm:text-5xl">
-              Share what&apos;s cooking.
+            <p className="eyebrow">Real recipes, real kitchens</p>
+            <h1 className="mt-3 font-display text-5xl font-bold leading-[1.05] sm:text-6xl">
+              Share what&apos;s
+              <br />
+              <span className="italic text-spice-500">cooking.</span>
             </h1>
             <p className="mt-5 max-w-[46ch] text-ink/70 dark:text-ink-dark/70">
               RecipeHub is where home cooks write down what they make, so
@@ -29,13 +32,13 @@ export default function HomePage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/browse-recipes"
-                className="rounded-full bg-spice-500 px-6 py-3 text-sm text-white hover:bg-spice-600"
+                className="rounded-full bg-spice-500 px-6 py-3 text-sm font-medium text-white hover:bg-spice-600"
               >
                 Browse recipes
               </Link>
               <Link
                 href="/dashboard/add-recipe"
-                className="rounded-full border border-ink/15 px-6 py-3 text-sm hover:bg-ink/5 dark:border-ink-dark/20 dark:hover:bg-white/5"
+                className="rounded-full border border-ink/15 px-6 py-3 text-sm font-medium hover:bg-ink/5 dark:border-ink-dark/20 dark:hover:bg-white/5"
               >
                 Share a recipe
               </Link>
@@ -48,6 +51,12 @@ export default function HomePage() {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
             className="relative"
           >
+            <p
+              className="script-accent absolute -top-7 right-6 z-10 text-2xl text-spice-600 dark:text-spice-100"
+              style={{ transform: "rotate(-4deg)" }}
+            >
+              cooked with love
+            </p>
             <div className="card-punch overflow-hidden rounded-card bg-spice-50 pt-4 ring-1 ring-ink/8 dark:bg-spice-700/20 dark:ring-ink-dark/10">
               <div className="relative mx-4 mb-4 aspect-[4/3] overflow-hidden rounded-[6px]">
                 <HeroIllustration />

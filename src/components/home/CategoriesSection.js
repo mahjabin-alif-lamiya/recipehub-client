@@ -13,7 +13,8 @@ const categories = [
 export default function CategoriesSection() {
   return (
     <section className="mx-auto max-w-6xl px-5 pb-20">
-      <h2 className="font-display text-2xl">Browse by category</h2>
+      <p className="eyebrow">Pick a craving</p>
+      <h2 className="mt-2 font-display text-3xl font-semibold">Browse by category</h2>
 
       <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6">
         {categories.map(({ name, Icon }) => (

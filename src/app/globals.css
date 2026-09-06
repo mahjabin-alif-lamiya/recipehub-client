@@ -35,6 +35,7 @@
 
   --font-display: var(--font-fraunces), Georgia, serif;
   --font-sans: var(--font-work-sans), system-ui, sans-serif;
+  --font-script: var(--font-caveat), cursive;
 
   --radius-card: 10px;
 }
@@ -55,6 +56,25 @@ body {
 :focus-visible {
   outline: 2px solid var(--color-spice-500);
   outline-offset: 2px;
+}
+
+/* Small uppercase label used above section/hero headlines */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-spice-600);
+}
+.dark .eyebrow {
+  color: var(--color-spice-100);
+}
+
+/* Handwritten-style accent text, used sparingly for personality */
+.script-accent {
+  font-family: var(--font-script);
+  font-weight: 600;
 }
 
 .card-punch {
