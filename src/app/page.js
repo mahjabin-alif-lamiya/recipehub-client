@@ -49,8 +49,12 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+            className="relative"
           >
             <HeroIllustration />
+            <div className="absolute -bottom-3 -right-3 hidden rounded-card bg-mustard-500 px-4 py-3 text-sm font-medium text-ink shadow-sm sm:block">
+              New recipe added every few minutes
+            </div>
           </motion.div>
         </div>
       </section>
