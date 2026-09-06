@@ -36,7 +36,7 @@ export default function Navbar() {
             <FaUtensils size={17} />
           </span>
           <span>
-            <span className="block font-display text-lg leading-tight">
+            <span className="block font-display text-xl font-semibold leading-tight">
               Recipe<span className="text-spice-500">Hub</span>
             </span>
             <span className="block text-xs text-spice-500 dark:text-spice-100">
@@ -50,7 +50,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`rounded-full px-4 py-2 text-sm transition-colors ${
+              className={`rounded-full px-4 py-2 text-[15px] font-medium transition-colors ${
                 pathname === link.href
                   ? "bg-spice-50 text-spice-600 dark:bg-spice-700/30 dark:text-spice-100"
                   : "text-ink/70 hover:text-ink dark:text-ink-dark/70 dark:hover:text-ink-dark"
@@ -67,7 +67,7 @@ export default function Navbar() {
             <>
               <Link
                 href={dashboardHome}
-                className="flex items-center gap-2 text-sm text-ink/80 dark:text-ink-dark/80"
+                className="flex items-center gap-2 text-[15px] font-medium text-ink/80 dark:text-ink-dark/80"
               >
                 <span className="grid h-8 w-8 place-items-center overflow-hidden rounded-full bg-spice-100 text-xs font-medium text-spice-700 dark:bg-spice-700/40 dark:text-spice-100">
                   {user.image ? (
@@ -80,19 +80,19 @@ export default function Navbar() {
               </Link>
               <button
                 onClick={handleLogout}
-                className="rounded-full border border-ink/15 px-4 py-2 text-sm hover:bg-ink/5 dark:border-ink-dark/20 dark:hover:bg-white/5"
+                className="rounded-full border border-ink/15 px-4 py-2 text-[15px] font-medium hover:bg-ink/5 dark:border-ink-dark/20 dark:hover:bg-white/5"
               >
                 Log out
               </button>
             </>
           ) : (
             <>
-              <Link href="/login" className="text-sm text-ink/80 dark:text-ink-dark/80">
+              <Link href="/login" className="text-[15px] font-medium text-ink/80 dark:text-ink-dark/80">
                 Log in
               </Link>
               <Link
                 href="/register"
-                className="rounded-full bg-spice-500 px-5 py-2 text-sm text-white hover:bg-spice-600"
+                className="rounded-full bg-spice-500 px-5 py-2 text-[15px] font-medium text-white hover:bg-spice-600"
               >
                 Sign up
               </Link>
@@ -108,7 +108,7 @@ export default function Navbar() {
       {open && (
         <div className="space-y-3 border-t border-ink/8 px-5 py-4 md:hidden dark:border-ink-dark/10">
           {links.map((link) => (
-            <Link key={link.href} href={link.href} className="block text-sm" onClick={() => setOpen(false)}>
+            <Link key={link.href} href={link.href} className="block text-[15px] font-medium" onClick={() => setOpen(false)}>
               {link.label}
             </Link>
           ))}
@@ -116,19 +116,19 @@ export default function Navbar() {
             <ThemeToggle />
             {user ? (
               <>
-                <Link href={dashboardHome} className="text-sm" onClick={() => setOpen(false)}>
+                <Link href={dashboardHome} className="text-[15px] font-medium" onClick={() => setOpen(false)}>
                   Dashboard
                 </Link>
-                <button onClick={handleLogout} className="text-sm text-brick-500">
+                <button onClick={handleLogout} className="text-[15px] font-medium text-brick-500">
                   Log out
                 </button>
               </>
             ) : (
               <>
-                <Link href="/login" className="text-sm" onClick={() => setOpen(false)}>
+                <Link href="/login" className="text-[15px] font-medium" onClick={() => setOpen(false)}>
                   Log in
                 </Link>
-                <Link href="/register" className="text-sm text-spice-500" onClick={() => setOpen(false)}>
+                <Link href="/register" className="text-[15px] font-medium text-spice-500" onClick={() => setOpen(false)}>
                   Sign up
                 </Link>
               </>
