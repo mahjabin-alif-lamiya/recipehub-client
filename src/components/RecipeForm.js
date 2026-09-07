@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { FiUploadCloud } from "react-icons/fi";
 
 const CATEGORIES = ["Breakfast", "Main Course", "Dessert", "Snacks", "Vegan", "Soup"];
 const DIFFICULTIES = ["Easy", "Medium", "Hard"];
@@ -24,11 +25,14 @@ export default function RecipeForm({ initialValues, onSubmit, submitLabel }) {
   );
   const [uploading, setUploading] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [fileName, setFileName] = useState("");
+  const fileInputRef = useRef(null);
 
   const handleImageUpload = async (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
+    setFileName(file.name);
     setUploading(true);
     try {
       const body = new FormData();
@@ -70,11 +74,30 @@ export default function RecipeForm({ initialValues, onSubmit, submitLabel }) {
 
       <div>
         <label className="text-sm">Recipe image</label>
-        <input type="file" accept="image/*" onChange={handleImageUpload} className="mt-1 text-sm" />
-        {uploading && <p className="mt-1 text-xs text-ink/50">Uploading…</p>}
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          onChange={handleImageUpload}
+          className="hidden"
+        />
+        <div className="mt-1 flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => fileInputRef.current?.click()}
+            disabled={uploading}
+            className="flex items-center gap-2 rounded-full bg-spice-50 px-4 py-2 text-sm font-medium text-spice-600 hover:bg-spice-100 disabled:opacity-60 dark:bg-spice-600/20 dark:text-spice-300 dark:hover:bg-spice-600/30"
+          >
+            <FiUploadCloud size={16} />
+            {uploading ? "Uploading…" : "Choose image"}
+          </button>
+          {fileName && !uploading && (
+            <span className="truncate text-sm text-ink/60 dark:text-ink-dark/60">{fileName}</span>
+          )}
+        </div>
         {form.recipeImage && (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={form.recipeImage} alt="Preview" className="mt-2 h-24 w-24 rounded-lg object-cover" />
+          <img src={form.recipeImage} alt="Preview" className="mt-3 h-24 w-24 rounded-lg object-cover" />
         )}
       </div>
 
