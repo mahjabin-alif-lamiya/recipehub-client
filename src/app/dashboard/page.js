@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { FiBook, FiHeart, FiThumbsUp, FiAward } from "react-icons/fi";
+import toast from "react-hot-toast";
 import api from "@/lib/api";
 import { useAuth } from "@/context/AuthContext";
 import Loader from "@/components/Loader";
@@ -9,10 +10,22 @@ import Loader from "@/components/Loader";
 export default function DashboardOverviewPage() {
   const { user } = useAuth();
   const [stats, setStats] = useState(null);
+  const [busy, setBusy] = useState(false);
 
   useEffect(() => {
     api.get("/users/stats").then(({ data }) => setStats(data));
   }, []);
+
+  const handleUpgrade = async () => {
+    setBusy(true);
+    try {
+      const { data } = await api.post("/payments/create-checkout-session", { type: "premium" });
+      window.location.href = data.url;
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Could not start checkout.");
+      setBusy(false);
+    }
+  };
 
   if (!stats) return <Loader label="Loading your dashboard" />;
 
@@ -49,10 +62,17 @@ export default function DashboardOverviewPage() {
       </div>
 
       {!user?.isPremium && (
-        <div className="mt-8 rounded-card border border-dashed border-mustard-500 p-5">
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-4 rounded-card border border-dashed border-mustard-500 p-5">
           <p className="text-sm">
             Free accounts can add up to 2 recipes. Go premium for unlimited recipes and a badge on your profile.
           </p>
+          <button
+            onClick={handleUpgrade}
+            disabled={busy}
+            className="shrink-0 rounded-full bg-mustard-500 px-5 py-2 text-sm font-medium text-ink hover:bg-mustard-600 disabled:opacity-60"
+          >
+            {busy ? "Redirecting…" : "Upgrade — $9.99"}
+          </button>
         </div>
       )}
     </div>
