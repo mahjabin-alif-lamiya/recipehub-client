@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import toast from "react-hot-toast";
 import api from "@/lib/api";
 import Loader from "@/components/Loader";
@@ -46,7 +47,7 @@ export default function ManageRecipesPage() {
       <h1 className="mt-2 font-display text-2xl font-semibold">Manage Recipes</h1>
 
       <div className="mt-6 overflow-x-auto rounded-card ring-1 ring-ink/8 dark:ring-ink-dark/10">
-        <table className="w-full min-w-[700px] text-left text-sm">
+        <table className="w-full min-w-[750px] text-left text-sm">
           <thead className="bg-ink/5 dark:bg-white/5">
             <tr>
               <th className="px-4 py-3 font-medium">Recipe</th>
@@ -74,6 +75,12 @@ export default function ManageRecipesPage() {
                   </span>
                 </td>
                 <td className="flex flex-wrap gap-2 px-4 py-3">
+                  <Link
+                    href={`/admin/recipes/edit/${recipe._id}`}
+                    className="rounded-full border border-ink/15 px-3 py-1.5 text-xs font-medium dark:border-ink-dark/20"
+                  >
+                    Edit
+                  </Link>
                   <button
                     onClick={() => toggleFeature(recipe)}
                     className={`rounded-full px-3 py-1.5 text-xs font-medium ${
