@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FiGrid, FiUsers, FiBook, FiFlag } from "react-icons/fi";
+import { FiGrid, FiUsers, FiBook, FiFlag, FiCreditCard } from "react-icons/fi";
 
 const links = [
   { href: "/admin", label: "Overview", icon: FiGrid },
   { href: "/admin/users", label: "Manage Users", icon: FiUsers },
   { href: "/admin/recipes", label: "Manage Recipes", icon: FiBook },
   { href: "/admin/reports", label: "Reports", icon: FiFlag },
+  { href: "/admin/transactions", label: "Transactions", icon: FiCreditCard },
 ];
 
 export default function AdminSidebar() {
