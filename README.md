@@ -3,9 +3,11 @@
 RecipeHub is a recipe sharing platform where home cooks can publish, browse,
 save, and buy recipes from the community. This is the Next.js frontend.
 
+**Live site:** https://recipehub-iota.vercel.app
+
 ## Tech stack
 
-- Next.js 15 (App Router), React
+- Next.js (App Router), React
 - Tailwind CSS v4
 - Framer Motion (animations)
 - Axios (API calls)
@@ -17,14 +19,15 @@ save, and buy recipes from the community. This is the Next.js frontend.
 
 - Public browsing with server-side pagination, category filter, and search
 - Credential and Google authentication (JWT stored in an httpOnly cookie)
-- Recipe CRUD with an image upload flow
+- Recipe CRUD with an image upload flow and a per-recipe purchase price
 - Likes, favorites, and recipe reporting
 - Stripe Checkout for buying a single recipe or a premium membership
-- User dashboard: overview stats, my recipes, favorites, purchased recipes,
-  profile
+- User dashboard: overview stats, my recipes, add/edit recipe, favorites,
+  purchased recipes, profile
 - Admin dashboard: manage users (block/unblock), manage recipes
   (edit/feature/delete), moderate reports, view transactions
 - Dark/light theme toggle
+- Custom 404 page
 
 ## Getting started
 
@@ -47,3 +50,26 @@ repo's README.
 | `NEXT_PUBLIC_IMGBB_API_KEY` | API key from [api.imgbb.com](https://api.imgbb.com/) for recipe image uploads |
 
 ## Project structure
+src/
+app/ Routes (App Router) — home, browse, recipe details,
+login, register, about, payment-success,
+dashboard/, admin/
+components/ Shared UI (Navbar, Footer, RecipeCard, RecipeForm,
+ReportModal, ProtectedRoute, AdminRoute,
+DashboardSidebar, AdminSidebar, etc.)
+components/home/ Home page sections (Featured, Popular, How It Works,
+Categories)
+context/ AuthContext, ThemeContext
+lib/ Axios instance
+
+## Deployment
+
+Deployed on Vercel: https://recipehub-iota.vercel.app
+
+Environment variables set in the Vercel dashboard:
+- `NEXT_PUBLIC_API_URL` → https://recipehub-server-a8ff.onrender.com/api
+- `NEXT_PUBLIC_GOOGLE_CLIENT_ID`
+- `NEXT_PUBLIC_IMGBB_API_KEY`
+
+Google Cloud Console's Authorized JavaScript origins includes this deployed
+URL alongside `http://localhost:3000` for local development.
