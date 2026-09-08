@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# RecipeHub — Client
 
-## Getting Started
+RecipeHub is a recipe sharing platform where home cooks can publish, browse,
+save, and buy recipes from the community. This is the Next.js frontend.
 
-First, run the development server:
+## Tech stack
+
+- Next.js 15 (App Router), React
+- Tailwind CSS v4
+- Framer Motion (animations)
+- Axios (API calls)
+- Google Identity Services (`@react-oauth/google`) for Google login
+- react-hot-toast for notifications
+- imgbb for recipe image hosting
+
+## Features
+
+- Public browsing with server-side pagination, category filter, and search
+- Credential and Google authentication (JWT stored in an httpOnly cookie)
+- Recipe CRUD with an image upload flow
+- Likes, favorites, and recipe reporting
+- Stripe Checkout for buying a single recipe or a premium membership
+- User dashboard: overview stats, my recipes, favorites, purchased recipes,
+  profile
+- Admin dashboard: manage users (block/unblock), manage recipes
+  (edit/feature/delete), moderate reports, view transactions
+- Dark/light theme toggle
+
+## Getting started
 
 ```bash
+npm install
+cp .env.local.example .env.local   # then fill in your real values
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app runs on [http://localhost:3000](http://localhost:3000). The backend
+(`recipehub-server`) must be running separately for data to load — see that
+repo's README.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Description |
+|---|---|
+| `NEXT_PUBLIC_API_URL` | Base URL of the backend API, e.g. `http://localhost:5000/api` |
+| `NEXT_PUBLIC_GOOGLE_CLIENT_ID` | OAuth client ID from Google Cloud Console |
+| `NEXT_PUBLIC_IMGBB_API_KEY` | API key from [api.imgbb.com](https://api.imgbb.com/) for recipe image uploads |
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project structure
