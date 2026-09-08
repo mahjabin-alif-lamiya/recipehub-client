@@ -1,4 +1,4 @@
-# RecipeHub — Client
+# RecipeHub 
 
 RecipeHub is a recipe sharing platform where home cooks can publish, browse,
 save, and buy recipes from the community. This is the Next.js frontend.
