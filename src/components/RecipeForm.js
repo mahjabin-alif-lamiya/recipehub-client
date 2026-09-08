@@ -11,18 +11,18 @@ const DIFFICULTIES = ["Easy", "Medium", "Hard"];
 const IMGBB_UPLOAD_URL = "https://api.imgbb.com/1/upload";
 
 export default function RecipeForm({ initialValues, onSubmit, submitLabel }) {
-  const [form, setForm] = useState(
-    initialValues || {
-      recipeName: "",
-      recipeImage: "",
-      category: CATEGORIES[0],
-      cuisineType: "",
-      difficultyLevel: "Easy",
-      preparationTime: "",
-      ingredients: "",
-      instructions: "",
-    }
-  );
+  const [form, setForm] = useState(() => ({
+    recipeName: "",
+    recipeImage: "",
+    category: CATEGORIES[0],
+    cuisineType: "",
+    difficultyLevel: "Easy",
+    preparationTime: "",
+    price: 1.99,
+    ingredients: "",
+    instructions: "",
+    ...(initialValues || {}),
+  }));
   const [uploading, setUploading] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [fileName, setFileName] = useState("");
@@ -148,6 +148,20 @@ export default function RecipeForm({ initialValues, onSubmit, submitLabel }) {
             className="mt-1 w-full rounded-lg border border-ink/15 bg-transparent px-3 py-2 text-sm dark:border-ink-dark/20"
           />
         </div>
+      </div>
+
+      <div>
+        <label className="text-sm">Price to unlock (USD)</label>
+        <input
+          type="number"
+          required
+          min="0.5"
+          step="0.01"
+          value={form.price}
+          onChange={(e) => setForm({ ...form, price: e.target.value })}
+          className="mt-1 w-full max-w-[160px] rounded-lg border border-ink/15 bg-transparent px-3 py-2 text-sm dark:border-ink-dark/20"
+        />
+        <p className="mt-1 text-xs text-ink/50">What buyers pay to unlock this recipe.</p>
       </div>
 
       <div>

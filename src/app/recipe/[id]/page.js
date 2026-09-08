@@ -76,6 +76,7 @@ export default function RecipeDetailsPage() {
   if (!recipe) return <p className="py-24 text-center">Recipe not found.</p>;
 
   const isOwner = user && recipe.authorId === user.id;
+  const price = typeof recipe.price === "number" ? recipe.price : 1.99;
 
   return (
     <div className="mx-auto max-w-3xl px-5 py-12">
@@ -133,7 +134,7 @@ export default function RecipeDetailsPage() {
           disabled={busy}
           className="mt-6 rounded-full bg-mustard-500 px-6 py-2.5 text-sm font-medium text-ink hover:bg-mustard-600 disabled:opacity-60"
         >
-          {busy ? "Redirecting…" : "Unlock full recipe — $1.99"}
+          {busy ? "Redirecting…" : `Unlock full recipe — $${price.toFixed(2)}`}
         </button>
       )}
 
