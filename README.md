@@ -51,7 +51,7 @@ repo's README.
 
 ## Project structure
 src/
-app/ Routes (App Router) — home, browse, recipe details,
+app/ Routes (App Router) : home, browse, recipe details,
 login, register, about, payment-success,
 dashboard/, admin/
 components/ Shared UI (Navbar, Footer, RecipeCard, RecipeForm,
